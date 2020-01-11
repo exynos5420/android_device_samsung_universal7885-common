@@ -76,8 +76,8 @@ vendor/lib/libmpp.so
 # so we create symlinks in setup-makefiles.sh.
 vendor/lib/egl/libGLES_mali.so
 vendor/lib64/egl/libGLES_mali.so
-vendor/lib/hw/memtrack.universal7880.so
-vendor/lib64/hw/memtrack.universal7880.so
+vendor/lib/hw/memtrack.universal7885.so
+vendor/lib64/hw/memtrack.universal7885.so
 
 # Media
 vendor/firmware/fimc_is_lib.bin
@@ -162,8 +162,8 @@ lib/libprotobuf-cpp-litN.so
 
 # Sensors
 bin/sensorhubservice
-lib64/hw/sensors.universal7880.so
-lib64/hw/sensorhubs.universal7880.so
+lib64/hw/sensors.universal7885.so
+lib64/hw/sensorhubs.universal7885.so
 lib64/libsensorhub.so
 lib64/libsensorhubservice.so
 lib/libsensorlistener.so
