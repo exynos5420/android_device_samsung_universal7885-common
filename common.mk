@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/universal7880-common
+LOCAL_PATH := device/samsung/universal7885-common
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -24,15 +24,13 @@ PRODUCT_PACKAGES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.samsungexynos7880 \
-    init.baseband.rc \
-    init.rilchip.rc \
+    fstab.samsungexynos7885 \
     init.power.rc \
     init.samsung.rc \
-    init.samsungexynos7880.rc \
-    init.samsungexynos7880.usb.rc \
+    init.samsungexynos7885.rc \
+    init.samsungexynos7885.usb.rc \
     init.wifi.rc \
-    ueventd.samsungexynos7880.rc
+    ueventd.samsungexynos7885.rc
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -43,11 +41,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.front.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.front.xml \
     frameworks/native/data/etc/android.hardware.ethernet.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.ethernet.xml \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml \
-    frameworks/native/data/etc/android.hardware.nfc.hce.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.hce.xml \
-    frameworks/native/data/etc/android.hardware.nfc.hcef.xml:system/etc/permissions/android.hardware.nfc.hcef.xml \
-    frameworks/native/data/etc/android.hardware.nfc.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.nfc.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml \
-    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml \
     frameworks/native/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
     frameworks/native/data/etc/android.hardware.usb.accessory.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.usb.accessory.xml \
@@ -67,7 +61,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.wifi.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.wifi.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.software.sip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.xml \
-    frameworks/native/data/etc/com.android.nfc_extras.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/com.nxp.mifare.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nxp.mifare.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
 
@@ -116,19 +109,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     AdvancedDisplay
 
-# Radio
-PRODUCT_PACKAGES += \
-    android.hardware.radio@1.0 \
-    android.hardware.radio.deprecated@1.0 \
-    libxml2 \
-    libprotobuf-cpp-full
-
-PRODUCT_PACKAGES += \
-    libril \
-    libsecril-client \
-    libsecril-client-sap \
-    modemloader \
-    rild
 
 PRODUCT_PACKAGES += \
     SamsungServiceMode
@@ -145,9 +125,6 @@ PRODUCT_PACKAGES += \
 
 # WCNSS
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/wifi/grippower.info:system/etc/firmware/wlan/grippower.info \
-    $(LOCAL_PATH)/configs/wifi/qcom_cfg.ini:system/etc/firmware/wlan/qcom_cfg.ini \
-    $(LOCAL_PATH)/configs/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/WCNSS_cfg.dat \
     $(LOCAL_PATH)/configs/wifi/indoorchannel.info:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/indoorchannel.info
 
 # WiFi
@@ -164,8 +141,6 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-impl \
     android.hardware.wifi@1.0-service \
     hostapd \
-    libqsap_sdk \
-    libQWiFiSoftApCfg \
     libwpa_client \
     wificond \
     wifilogd \
@@ -178,30 +153,18 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
     libbt-vendor
 
-# NFC
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/nfc/libnfc-sec-hal.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-sec-hal.conf \
-    $(LOCAL_PATH)/configs/nfc/libnfc-sec.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nci.conf \
-    $(LOCAL_PATH)/configs/nfc/nfcee_access.xml:$(TARGET_COPY_OUT_VENDOR)/etc/nfcee_access.xml
-
-PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.0-impl \
-    com.android.nfc_extras \
-    NfcNci \
-    Tag
-
 # Audio
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \
     $(LOCAL_PATH)/configs/audio/mixer_gains.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_gains.xml \
     $(LOCAL_PATH)/configs/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
-    $(LOCAL_PATH)/configs/audio/mixer_paths_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_0.xml
+    $(LOCAL_PATH)/configs/audio/mixer_paths_rev02.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_rev02.xml
 
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
     android.hardware.audio.effect@2.0-impl \
-    audio_amplifier.universal7880_32 \
-    audio.primary.universal7880_32 \
+    audio_amplifier.universal7885_32 \
+    audio.primary.universal7885_32 \
     audio.a2dp.default \
     audio.usb.default \
     audio.r_submix.default \
@@ -231,26 +194,19 @@ PRODUCT_COPY_FILES += \
 
 # Touchscreen
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/idc/ft5x06_ts.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/ft5x06_ts.idc \
-    $(LOCAL_PATH)/configs/idc/Synaptics_HID_TouchPad.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Synaptics_HID_TouchPad.idc \
-    $(LOCAL_PATH)/configs/idc/Synaptics_RMI4_TouchPad_Sensor.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/Synaptics_RMI4_TouchPad_Sensor.idc \
-    $(LOCAL_PATH)/configs/idc/sec_touchscreen.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/sec_touchscreen.idc
+    $(LOCAL_PATH)/configs/idc/AVRCP.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/AVRCP.idc \
+    $(LOCAL_PATH)/configs/idc/qwerty.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/qwerty.idc \
+    $(LOCAL_PATH)/configs/idc/qwerty2.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/qwerty2.idc
 
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.0-impl \
-    power.universal7880
+    power.universal7885
 
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl \
-    lights.universal7880
-
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service \
-    fingerprint.exynos5 \
-    libbauthtzcommon_shim
+    lights.universal7885
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -275,13 +231,13 @@ PRODUCT_PACKAGES += \
     android.hidl.manager@1.0
 
 # System.prop
-TARGET_SYSTEM_PROP += device/samsung/universal7880-common/system.prop
+TARGET_SYSTEM_PROP += device/samsung/universal7885-common/system.prop
 
 # call Samsung LSI board support package
 ifneq ($(WITH_EXYNOS_BSP),)
 $(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
-$(call inherit-product, hardware/samsung_slsi/exynos7880/exynos7880.mk)
+$(call inherit-product, hardware/samsung_slsi/exynos7885/exynos7885.mk)
 endif
 
 # call the proprietary setup
-$(call inherit-product, vendor/samsung/universal7880-common/universal7880-common-vendor.mk)
+$(call inherit-product, vendor/samsung/universal7885-common/universal7885-common-vendor.mk)

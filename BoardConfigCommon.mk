@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/samsung/universal7880-common
+LOCAL_PATH := device/samsung/universal7885-common
 
 # Include path
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
@@ -26,8 +26,8 @@ TARGET_NO_RADIOIMAGE := true
 # Platform
 TARGET_BOARD_PLATFORM := exynos5
 TARGET_SLSI_VARIANT := bsp
-TARGET_SOC := exynos7880
-TARGET_BOOTLOADER_BOARD_NAME := universal7880
+TARGET_SOC := exynos7885
+TARGET_BOOTLOADER_BOARD_NAME := universal7885
 
 # CPU
 TARGET_ARCH := arm64
@@ -62,14 +62,14 @@ TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_LINUX_KERNEL_VERSION := 3.18
 
 # Kernel config
-TARGET_KERNEL_SOURCE := kernel/samsung/universal7880
+TARGET_KERNEL_SOURCE := kernel/samsung/exynos7885
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 33554432
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 39845888
-BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 5033164800
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 25656557568
-BOARD_CACHEIMAGE_PARTITION_SIZE    := 209715200
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 47185920
+BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 3196059648
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 26914848768
+BOARD_CACHEIMAGE_PARTITION_SIZE    := 159383552
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE  := ext4
 
 # blockdev --getbsz /dev/block/mmcblk0p9
@@ -163,20 +163,6 @@ BOARD_USES_SCALER_M2M1SHOT := true
 # Video scaling issue workaround
 TARGET_OMX_LEGACY_RESCALING := true
 
-# Wifi
-BOARD_HAS_QCOM_WLAN := true
-BOARD_WLAN_DEVICE := qcwcn
-BOARD_HOSTAPD_DRIVER := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-BOARD_WPA_SUPPLICANT_DRIVER := NL80211
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_$(BOARD_WLAN_DEVICE)
-WIFI_DRIVER_FW_PATH_AP := "ap"
-WIFI_DRIVER_FW_PATH_STA := "sta"
-WIFI_DRIVER_FW_PATH_P2P := "p2p"
-WIFI_DRIVER_MODULE_NAME := wlan
-WIFI_DRIVER_MODULE_PATH := /system/lib/modules/qca_cld/qca_cld_wlan.ko
-WPA_SUPPLICANT_VERSION := VER_0_8_X
-
 # Wifi loader
 BOARD_HAVE_SAMSUNG_WIFI := true
 
@@ -189,14 +175,6 @@ CHARGING_ENABLED_PATH := /sys/class/power_supply/battery/batt_lp_charging
 # DT2W
 TARGET_TAP_TO_WAKE_NODE := /sys/class/sec/tsp/dt2w_enable
 
-# RIL
-BOARD_VENDOR := samsung
-BOARD_MODEM_TYPE := ss333
-BOARD_PROVIDES_LIBRIL := true
-BOARD_NEEDS_ROAMING_PROTOCOL_FIELD := true
-BOARD_NEEDS_IMS_TYPE_FIELD := true
-TARGET_NEEDS_NETD_DIRECT_CONNECT_RULE := true
-
 # Init
 TARGET_INIT_VENDOR_LIB := libinit_sec
 
@@ -206,11 +184,11 @@ TARGET_INIT_VENDOR_LIB := libinit_sec
 # Recovery
 #RECOVERY_VARIANT := twrp
 BOARD_HAS_DOWNLOAD_MODE := true
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.samsungexynos7880
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/ramdisk/fstab.samsungexynos7885
 
 # TWRP
 ifeq ($(RECOVERY_VARIANT),twrp)
-PRODUCT_COPY_FILES += device/samsung/universal7880-common/twrp/twrp.fstab:recovery/root/etc/twrp.fstab
+PRODUCT_COPY_FILES += device/samsung/universal7885-common/twrp/twrp.fstab:recovery/root/etc/twrp.fstab
 TW_THEME := portrait_hdpi
 TW_BRIGHTNESS_PATH := /sys/class/backlight/panel/brightness
 TW_MAX_BRIGHTNESS := 255
@@ -229,10 +207,10 @@ TW_EXCLUDE_TWRPAPP := true
 endif
 
 # Seccomp filters
-BOARD_SECCOMP_POLICY += device/samsung/universal7880-common/seccomp
+BOARD_SECCOMP_POLICY += device/samsung/universal7885-common/seccomp
 
 # SELinux
-BOARD_SEPOLICY_DIRS += device/samsung/universal7880-common/sepolicy
+BOARD_SEPOLICY_DIRS += device/samsung/universal7885-common/sepolicy
 
 # Shims
 TARGET_LD_SHIM_LIBS := \

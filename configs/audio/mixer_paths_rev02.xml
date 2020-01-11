@@ -1,5 +1,5 @@
 <mixer>
-	<include name="/vendor/etc/mixer_gains.xml" />
+	<include name="/vendor/etc/mixer_gains_rev02.xml" />
 
 	<pcmdai playback_link="0" />
 	<pcmdai playback_low_link="2" />
@@ -121,10 +121,6 @@
 		<ctl name="ABOX SPUS OUT7" value="SIFS1" />
 		<ctl name="ABOX SIFS1" value="SPUS OUT7" />
 		<ctl name="ABOX UAIF SPK3" value="SIFS1" />
-		<ctl name="SPKL LR_DATA_SW(1:swap_0:normal)" value="0" />
-		<ctl name="SPKR LR_DATA_SW(1:swap_0:normal)" value="1" />
-		<ctl name="SPKL Speaker Mute Switch(1:muted_0:un-muted" value="0" />
-		<ctl name="SPKR Speaker Mute Switch(1:muted_0:un-muted" value="0" />
 	</path>
 
 	<path name="route-fm">
@@ -725,7 +721,6 @@
 
 	<path name="realtimeloopback-headset">
 		<path name="media-headset" />
-		<ctl name="OVP Tuning Value" value="196" />
 	</path>
 
 	<path name="realtimeloopback-bt-sco-headset">
