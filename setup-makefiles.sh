@@ -16,7 +16,7 @@
 set -e
 
 VENDOR=samsung
-DEVICE_COMMON=universal7880-common
+DEVICE_COMMON=universal7885-common
 
 # Load extractutils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

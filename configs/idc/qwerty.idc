@@ -1,4 +1,4 @@
-# Copyright (C) 2012 The Android Open Source Project
+# Copyright (C) 2010 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,20 +13,16 @@
 # limitations under the License.
 
 #
-# Input Device Calibration File for the touch screen.
+# Emulator keyboard configuration file #1.
 #
-
-device.internal = 1
 
 touch.deviceType = touchScreen
 touch.orientationAware = 1
 
-touch.size.calibration = area
-touch.size.scale = 52
-touch.size.bias = 11.8
-touch.size.isSummed = 0
+keyboard.layout = qwerty
+keyboard.characterMap = qwerty
+keyboard.orientationAware = 1
+keyboard.builtIn = 1
 
-touch.pressure.calibration = amplitude
-touch.pressure.scale = 0.015
-
-touch.orientation.calibration = vector
+cursor.mode = navigation
+cursor.orientationAware = 1
