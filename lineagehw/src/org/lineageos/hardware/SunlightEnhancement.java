@@ -29,7 +29,7 @@ import org.lineageos.internal.util.FileUtils;
 public class SunlightEnhancement {
 
     private static final String HBM_PATH = "/sys/class/mdnie/mdnie/lux";
-    /* see drivers/video/fbdev/exynos/decon_7880/panels/mdnie_lite_table*, get_hbm_index */
+    /* see drivers/video/fbdev/exynos/decon_7885/panels/mdnie_lite_table*, get_hbm_index */
     private static final String HBM_MIN_VALUE = "40000";
 
     /**

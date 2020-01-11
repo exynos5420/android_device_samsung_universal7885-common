@@ -1,4 +1,4 @@
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2010 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,16 +12,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := $(call my-dir)
-include $(CLEAR_VARS)
+#
+# Emulator keyboard configuration file #2.
+#
 
-LOCAL_SRC_FILES := \
-    libbauthtzcommon.c
+touch.deviceType = touchScreen
+touch.orientationAware = 1
 
-LOCAL_SHARED_LIBRARIES := liblog
+keyboard.layout = qwerty
+keyboard.characterMap = qwerty2
+keyboard.orientationAware = 1
+keyboard.builtIn = 1
 
-LOCAL_MODULE := libbauthtzcommon_shim
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-
-include $(BUILD_SHARED_LIBRARY)
+cursor.mode = navigation
+cursor.orientationAware = 1

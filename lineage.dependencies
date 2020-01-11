@@ -4,7 +4,7 @@
         "target_path": "hardware/samsung"
     },
     {
-        "repository": "android_kernel_samsung_universal7880",
-        "target_path": "kernel/samsung/universal7880"
+        "repository": "android_kernel_exynos7885",
+        "target_path": "kernel/samsung/exynos7885"
     }
 ]
